@@ -102,7 +102,7 @@ plt.show()
 # (1) Read an image and convert it to grayscale using OpenCV.
 import cv2
 
-image = cv2.imread('image.png')
+image = cv2.imread('milner_image.png')
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 cv2.imshow('gray', gray)
 cv2.waitKey(0)
@@ -114,9 +114,17 @@ cv2.waitKey(0)
 
 # (3) Use a Haar cascade classifier to implement face detection using OpenCV on an image which
 # contains faces.
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('milner_haarcascade_frontalface_default.xml')
 faces = face_cascade.detectMultiScale(gray, 1.1, 4)
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
 cv2.imshow('faces', image)
 cv2.waitKey(0)
+
+# Homework
+# Explain how Haar cascades work to detect faces.
+# Haar cascades are machine learning-based object detection methods. They use features
+# (similar to edge detection) and a classifier trained on many positive and negative
+# images to detect objects—in this case, faces. The method is efficient and works well
+# for fixed-size objects, like frontal faces.
+
